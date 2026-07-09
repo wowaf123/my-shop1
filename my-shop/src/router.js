@@ -1,8 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import AdminDashboard from './pages/AdminDashboard.vue';
-import ManageProducts from './pages/ManageProducts.vue';
-import ManageReviews from './pages/ManageReviews.vue';
-
+import AdminDashboard from './components/pages/AdminDashboard.vue';
+import ManageProducts from './components/pages/ManageProducts.vue';
+import ManageReviews from './components/pages/ManageReviews.vue';
 const routes = [
     {
         path: '/',

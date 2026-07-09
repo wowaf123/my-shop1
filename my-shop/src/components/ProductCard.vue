@@ -4,17 +4,31 @@
     <h2>{{ name }}</h2>
     <p>{{ description }}</p>
     <p class="price">${{ price }}</p>
-    <button class="buy-button">Add to Cart</button>
+    <button v-on:click="handleAddToCart" class="buy-button">Add to Cart</button>
   </div>
 </template>
 
 <script>
+import { inject } from "vue";
 export default {
   props: {
     name: String,
     description: String,
     price: Number,
     image: String,
+  },
+  setup(props) {
+    const addToCart = inject("addToCart");
+    function handleAddToCart() {
+      addToCart({
+        name: props.name,
+        price: props.price,
+        image: props.image,
+      });
+    }
+    return {
+      handleAddToCart,
+    };
   },
   
 };
@@ -103,12 +117,5 @@ p {
 
 .buy-button:active {
   transform: translateY(0);
-}
-
-
-
-
-.buy-button:hover {
-  background: #0056b3;
 }
 </style> 
